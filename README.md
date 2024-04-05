@@ -5,4 +5,4 @@ You will need to install python on the Unraid server using the excellent nerd sc
 
 Playbooks: 
 - add_unraid_cert.yaml  
-This playbook downloads a certificate bundle from a webserver that is protected with htaccess. I run this under a SWAG container on a seperate instance. 
+This playbook downloads a certificate bundle from a webserver that is protected with htaccess. I run this under a SWAG container on a seperate instance. My inspiration for this came from: https://github.com/samssausages/unraid-install-sslcert
