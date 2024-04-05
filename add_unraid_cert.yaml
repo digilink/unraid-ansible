@@ -1,0 +1,18 @@
+---
+- name: download cert bundle from webserver
+  hosts: hostname
+  become: true
+
+  vars:
+    bundle_url: "https://<url>/priv-fullchain-bundle.pem"
+    bundle_remote_path: "/boot/config/ssl/certs/hostname_unraid_bundle.pem"
+    web_server_username: "username"
+    web_server_password: "password"
+
+  tasks:
+    - name: download bundle using curl
+      command: "curl -o {{ bundle_remote_path }} --user {{ web_server_username }}:{{ web_server_password }} {{ bundle_url }}"
+
+    - name: restart nginx
+      ansible.builtin.shell:
+        cmd: /etc/rc.d/rc.nginx restart
